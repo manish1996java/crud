@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="./Assets/js/question.js"></script>
+    <script src="./Assets/js/questionOperation.js"></script>
+    <script src="Assets/js/utils.js"></script>
+    <script src="./Assets/js/controller.js"></script>
+    
+    <style>
+        h1 {
+            font-family: 'Roboto Slab', serif;
+        }
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+    <title>CRUD App</title>
+</head>
+
+<body>
+    <div class='container'>
+        <h1 class="alert-success">Question CRUD</h1>
+        <div class='form-group'>
+            <label for="">QuestionID</label>
+            <label id="id" class='form-control'></label>
+        </div>
+        <div class='form-group'>
+            <label for="">Name</label>
+            <textarea id="name" class='form-control clear' cols="30" rows="5"></textarea>
+        </div>
+
+        <div class='form-group'>
+            <label for="">A</label>
+            <input id="ans1" type="text" placeholder="Type Answers" class='form-control clear'>
+        </div>
+        <div class='form-group'>
+            <label for="">B</label>
+            <input id="ans2" type="text" placeholder="Type Answers" class='form-control clear'>
+        </div>
+        <div class='form-group'>
+            <label for="">C</label>
+            <input id="ans3" type="text" placeholder="Type Answers" class='form-control clear'>
+        </div>
+        <div class='form-group'>
+            <label for="">D</label>
+            <input id="ans4" type="text" placeholder="Type Answers" class='form-control clear'>
+        </div>
+        <div class='form-group'>
+            <label for="">Score</label>
+            <input id="score" type="range" min="1" max="5" class='form-control'>
+        </div>
+        <div class='form-group'>
+            <label for="">Right Answer</label>
+            <select id="rans" class='form-control'>
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
+            </select>
+        </div>
+        <div id='searchbox' class='form-group'>
+            <label for="">Search By</label>
+            <select id="searchby">
+                <option value="id">Id</option>
+                <option value="name">Name</option>
+                <option value="score">Score</option>
+            </select>
+            <input type="text" id="search">
+            <button class='btn btn-info' id="searchnow">Search Now</button>
+        </div>
+        <div class="form-group">
+            <button id="add" class='btn btn-primary'><i class="fas fa-plus-square"></i>Add</button>
+            <button class='btn btn-danger'><i class="fas fa-trash-alt"></i>Delete</button>
+            <button id="searchbt" class='btn btn-info'>Search</button>
+            <button class='btn btn-warning'>Update</button>
+            <button id='save' class='btn btn-success'>Save</button>
+            <button id='load' class='btn btn-dark'>Load</button>
+            <button class='btn btn-secondary'>Sort</button>
+            <button class='btn btn-primary'>Save to Server</button>
+            <button id="clearall" class='btn btn-secondary'>Clear All</button>
+        </div>
+        <h2 class='alert-info'>Total Records <span id="total"></span> Total Mark Record <span id="mark"></span> Total Unmark Record <span id="unmark"></span></h2>
+        <!-- <div class='form-group'>
+            <label for="">Date</label>
+            <input type="date" class='form-control'>
+        </div> -->
+        <table class='table table-bordered'>
+            <thead class='table-dark'>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Ans1</th>
+                    <th>Ans2</th>
+                    <th>Ans3</th>
+                    <th>Ans4</th>
+                    <th>Score</th>
+                    <th>Rans</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody id="questionlist">
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>
